@@ -23,8 +23,15 @@ function Mouse_dir(el) {
     bg.style.position = 'absolute';
     bg.style.width = 'inherit';
     bg.style.height = 'inherit';
-    bg.style.transform = 'scale(1.2) translateX(0px);'
+    bg.style.transform = 'scale(1.2, 1.2) translateX(0px)';
     bg.style.backgroundPosition = 'center';
+    bg.style.backgroundSize = 'cover';
+
+    document.querySelector(_this.el).addEventListener('mouseout',function(){
+      var bg = document.querySelector(_this.el + ' .bg');
+      bg.style.transform = 'scale(1.0, 1.0) translateX(0px)';
+      console.log(_this.el, 'mouseout')
+    })
 
     document.querySelector(_this.el).addEventListener('mousemove', function (e) {
       bg.style.transitionDuration = '2s';
@@ -34,13 +41,13 @@ function Mouse_dir(el) {
         _this.mouse_status = 'right';
         view.setAttribute('data-dir', '')
         view.setAttribute('data-dir', 'right');
-        bg.style.transform = 'scale(1.2) translateX(-20px)';
+        bg.style.transform = 'scale(1.2, 1.2) translateX(-20px)';
         console.log('right')
       } else {
         _this.mouse_status = 'left';
         view.setAttribute('data-dir', '')
         view.setAttribute('data-dir', 'left');
-        bg.style.transform = 'scale(1.2) translateX(20px)';
+        bg.style.transform = 'scale(1.2, 1.2) translateX(20px)';
         console.log('left')
       }
       _this.recent_pos_x = _this.current_pos_x;
