@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mouse 방향 감지</title>
+  <style>
+    #title {
+      width: 100%;
+      height: 400px;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid red;
+    }
+
+    #title h1 {
+      position: relative;
+      color: #fff;
+    }
+
+    #title>.bg {
+      position: absolute;
+      width: 100%;
+      height: 400px;
+      left: 0;
+      top: 0;
+      background-image: url(https://i.guim.co.uk/img/media/bfd1fab107e1ad17ed62c23ea3091dff29f19bc8/0_1_1459_875/master/1459.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=a2a1aac0600a6ac6d5ea58983bd9eb25);
+      /* background-position: center; */
+      /* background-size: cover; */
+      /* transition: 2s; */
+    }
+
+    /* #title > .bg {
+      transform: scale(1.2) translateX(0px);
+    }
+
+    #title[data-dir="left"] > .bg {
+      transform: scale(1.2) translateX(20px)
+    }
+
+    #title[data-dir="right"] > .bg {
+      transform: scale(1.2) translateX(-20px)
+    } */
+  </style>
+  <script src="./mouse_dir.js"></script>
+</head>
+
+<body>
+  <section id="title" class="mouse-dir" data-dir="">
+    <div class="bg">
+      <h1>title</h1>
+    </div>
+  </section>
+  <div id="visual" data-dir="" style="width:300px;height:300px; background:#ccc;">
+    <div class="bg" style="width: 300px;height: 300px;background: url(https://img.freepik.com/free-photo/trees-against-starry-sky-with-milky-way_159067-469.jpg?size=664&ext=jpg);background-size: cover;">bg</div>
+  </div>
+  <p class="pan">방향</p>
+  <div data-dir=""><h1>other box</h1></div>
+
+  <script>
+
+    var title = new Mouse_dir('#title');
+    title.run();
+
+    var visual = new Mouse_dir('#visual');
+    visual.run();
+
+  </script>
+</body>
+
+</html>
